@@ -6,7 +6,7 @@ RUN \
     add-apt-repository universe && \
     add-apt-repository ppa:certbot/certbot && \
     apt-get update && \
-    apt-get install -y certbot python-certbot-apache && \ 
+    apt-get install -y certbot python-certbot-apache 
 RUN certbot --apache certonly
 ADD crontab /etc/crontabs
 RUN crontab /etc/crontabs/crontab
