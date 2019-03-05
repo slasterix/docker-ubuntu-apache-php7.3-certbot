@@ -7,4 +7,6 @@ RUN \
     add-apt-repository ppa:certbot/certbot && \
     apt-get update && \
     apt-get install -y certbot python-certbot-apache
-RUN echo '0 2 * * * certbot renew --dry-run' > /etc/crontabs/root
+COPY crontab /etc/cron.d/certbot
+RUN chmod 0644 /etc/cron.d/certbot
+RUN service cron start
