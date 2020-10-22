@@ -1,7 +1,7 @@
 FROM slasterix/docker-ubuntu-apache-php7.3:latest
 ARG DEBIAN_FRONTEND=noninteractive
+RUN a2enmod proxy_wstunnel 
 RUN \
-    a2enmod proxy_wstunnel && \
     apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository universe && \
